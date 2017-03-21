@@ -1,3 +1,5 @@
+// var db = require('../../models/_db.js')
+// var Hotels = require('../../models/hotel.js')
 $(function initializeMap (){
 
   var fullstackAcademy = new google.maps.LatLng(40.705086, -74.009151);
@@ -61,3 +63,25 @@ $(function initializeMap (){
   // drawMarker('activity', [40.716291, -73.995315]);
 
 });
+
+  hotels.forEach(function(element){
+    $('#hotel-choices').append('<option>'+element.name+'</option>')
+  })
+
+  restaurants.forEach(function(element) {
+    $('#restaurant-choices').append('<option>'+element.name+'</option>')
+  })
+
+  activities.forEach(function(element) {
+    $('#activity-choices').append('<option>'+element.name+'</option>')
+  })
+
+  $('#options-panel').on('click', 'button', function() {
+    var hotelname = $('#hotel-choices').find(':selected').val()
+    for (var i = 0; i < hotels.length; i ++) {
+      if(hotels[i].name === hotelname) {
+        console.log('this is the hotel name', hotels[i].place)
+        console.log('howdy')
+      }
+    } 
+  })

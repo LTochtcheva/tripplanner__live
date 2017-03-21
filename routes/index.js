@@ -7,7 +7,6 @@ var Place = require('../models/place');
 var Promise = require('bluebird');
 
 router.get('/', function(req, res, next) {
-
   var findingHotels = Hotel.findAll({
     include: [Place]
   });
